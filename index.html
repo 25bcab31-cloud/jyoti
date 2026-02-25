@@ -1,119 +1,188 @@
-<!DOCTYPE html>
+
+     <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Jyoti Sharma Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Portfolio</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f2f6ff;
-        }
+<style>
 
-        /* Header */
-        .header {
-            background: #4a6cf7;
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
 
-        .header h1 {
-            margin: 0;
-        }
+/* NAVBAR */
+nav{
+  background:#25bcab;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  color:white;
+}
 
-        /* Container */
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-        }
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
 
-        /* Card style */
-        .card {
-            background: white;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+nav a{
+  color:white;
+  text-decoration:none;
+}
 
-        h2 {
-            color: #4a6cf7;
-        }
+/* HERO */
+.hero{
+  text-align:center;
+  padding:60px 20px;
+  background:#f5f5f5;
+}
 
-        /* Skills */
-        .skills span {
-            background: #e0e7ff;
-            padding: 8px 15px;
-            margin: 5px;
-            display: inline-block;
-            border-radius: 20px;
-        }
+.hero h1{
+  font-size:40px;
+  color:#25bcab;
+}
 
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 15px;
-            background: #4a6cf7;
-            color: white;
-            margin-top: 30px;
-        }
-    </style>
+/* SECTION */
+section{
+  padding:40px 20px;
+  text-align:center;
+}
+
+/* SKILLS */
+.skills{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.skill{
+  background:#25bcab;
+  color:white;
+  padding:15px 25px;
+  border-radius:8px;
+}
+
+/* PROJECT */
+.project{
+  background:#eee;
+  padding:20px;
+  border-radius:10px;
+  max-width:400px;
+  margin:auto;
+}
+
+/* CONTACT */
+form{
+  max-width:400px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+input, textarea{
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+button{
+  padding:12px;
+  background:#25bcab;
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#1aa394;
+}
+
+/* FOOTER */
+footer{
+  background:#25bcab;
+  color:white;
+  padding:10px;
+  text-align:center;
+}
+
+</style>
 </head>
 
 <body>
 
-    <div class="header">
-        <h1>Jyoti Sharma</h1>
-        <p>USN: 25BCAB31 | Student Portfolio</p>
-    </div>
+<!-- NAVBAR -->
+<nav>
+  <h2>Jyoti Sharma</h2>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <div class="container">
+<!-- HERO -->
+<div class="hero">
+  <h1>Student Portfolio</h1>
+  <p>BCA Student | Web Developer</p>
+</div>
 
-        <div class="card">
-            <h2>About Me</h2>
-            <p>Hello! I am Jyoti Sharma, a BCA student passionate about programming,
-            data structures, and web development. I enjoy learning new technologies
-            and building creative projects.</p>
-        </div>
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>Hello! I am Jyoti Sharma, a BCA student passionate about web development and technology.</p>
+</section>
 
-        <div class="card">
-            <h2>Education</h2>
-            <p>Bachelor of Computer Applications (BCA)</p>
-        </div>
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">Python</div>
+  </div>
+</section>
 
-        <div class="card">
-            <h2>Skills</h2>
-            <div class="skills">
-                <span>C Programming</span>
-                <span>Python</span>
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>Data Structures</span>
-            </div>
-        </div>
+<!-- PROJECT -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project">
+    <h3>Portfolio Website</h3>
+    <p>A personal portfolio website created using HTML, CSS and JavaScript.</p>
+  </div>
+</section>
 
-        <div class="card">
-            <h2>Projects</h2>
-            <ul>
-                <li>Student Management System</li>
-                <li>Sorting Algorithm Visualizer</li>
-                <li>Personal Portfolio Website</li>
-            </ul>
-        </div>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact Me</h2>
 
-        <div class="card">
-            <h2>Contact</h2>
-            <p>Email: jyoti@example.com</p>
-        </div>
+  <form action="https://formspree.io/f/xvzbdlae" method="POST">
 
-    </div>
+    <input type="text" name="name" placeholder="Your Name" required>
 
-    <div class="footer">
-        © 2026 Jyoti Sharma
-    </div>
+    <input type="email" name="email" placeholder="Your Email" required>
+
+    <textarea name="message" placeholder="Your Message" required></textarea>
+
+    <button type="submit">Send Message</button>
+
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Jyoti Sharma</p>
+</footer>
 
 </body>
 </html>
