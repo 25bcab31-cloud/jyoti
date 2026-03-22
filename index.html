@@ -1,4 +1,4 @@
-
+ 
    <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -166,7 +166,7 @@ footer{
 <section id="contact">
   <h2>Contact Me</h2>
 
-  <form action="https://formspree.io/f/xvzbdlae" method="POST">
+  <form id="contactForm">
 
     <input type="text" name="name" placeholder="Your Name" required>
 
@@ -183,6 +183,27 @@ footer{
 <footer>
   <p>© 2026 Jyoti Sharma</p>
 </footer>
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(e){
+    e.preventDefault();
 
+    const data = {
+        name: document.querySelector("input[name='name']").value,
+        email: document.querySelector("input[name='email']").value,
+        message: document.querySelector("textarea[name='message']").value
+    };
+
+    const res = await fetch("/contact", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+
+    const msg = await res.text();
+    alert(msg);
+});
+</script>
 </body>
 </html>
