@@ -27,7 +27,7 @@ server.js - creates a backend and host the server to the local machine.
 
 1. Download or clone the repository.
 2. Open terminal and run node server.js, this will host the server in the local machine.
-3. Go to the browser and click on the url that you get in the terminal after hosting the server.
+3. Go to the browser and open http://localhost:3000.
 
 ## Author
 
