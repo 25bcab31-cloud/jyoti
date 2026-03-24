@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const Message = require("./2-db"); // 👈 import database
 
 const app = express();
 const PORT = 3000;
@@ -12,13 +13,28 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/1-index.html");
 });
 
-app.post("/contact", (req, res) => {
+// 👇 UPDATED CONTACT ROUTE (SAVES TO DB)
+app.post("/contact", async (req, res) => {
     const { name, email, message } = req.body;
 
-    console.log("New Message:");
-    console.log(name, email, message);
+    try {
+        // save to database
+        const newMessage = new Message({
+            name,
+            email,
+            message
+        });
 
-    res.send("Message received successfully!");
+        await newMessage.save();
+
+        console.log("Saved to DB:");
+        console.log(name, email, message);
+
+        res.send("Message saved successfully!");
+    } catch (error) {
+        console.log(error);
+        res.send("Error saving message");
+    }
 });
 
 app.listen(PORT, () => {
