@@ -184,26 +184,42 @@ footer{
   <p>© 2026 Jyoti Sharma</p>
 </footer>
 <script>
-document.getElementById("contactForm").addEventListener("submit", async function(e){
-    e.preventDefault();
+  const contactForm = document.getElementById('contactForm');
 
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevents the page from reloading
+
+    // 1. Get data from the form fields
+    const formData = new FormData(contactForm);
     const data = {
-        name: document.querySelector("input[name='name']").value,
-        email: document.querySelector("input[name='email']").value,
-        message: document.querySelector("textarea[name='message']").value
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message')
     };
 
-    const res = await fetch("/contact", {
-        method: "POST",
+    try {
+      // 2. Send data to your Vercel API
+      const response = await fetch('/api/submit', {
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json"
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data)
-    });
+        body: JSON.stringify(data),
+      });
 
-    const msg = await res.text();
-    alert(msg);
-});
+      // 3. Handle the result
+      if (response.ok) {
+        alert('Thank you, Jyoti! Your message was saved to the database.');
+        contactForm.reset(); // Clears the form
+      } else {
+        const errorData = await response.json();
+        alert('Error: ' + errorData.error);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to connect to the server.');
+    }
+  });
 </script>
 </body>
 </html>
